@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head">
+    <title>Library List</title>
+     
+</head>
+<style>
+    div {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            border: none; /* Remove table border */
+        }
+        
+        th, td {
+            border: none; /* Remove borders from th and td elements */
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .action-links a {
+            margin-right: 5px;
+            text-decoration: none;
+            padding: 3px 8px;
+            border-radius: 3px;
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .action-links a:hover {
+            background-color: #0056b3;
+        }
+        
+        h1 {
+            margin-left: 43%;
+        }
+    </style>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<div>
+<h1>Your library</h1>
+<table>
+    <tr>
+        
+        <th>Title</th>
+        <th>Publisher</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="library: ${libraries}">
+        
+        <td th:text="${library.name}" />
+        <td th:text="${library.location}" />
+        <td><a th:href="@{'/libraries/edit/' + ${library.id}}">Change</a></td>
+        <td><a th:href="@{'/libraries/delete/' + ${library.id}}">Remove</a></td>   
+           
+    </tr>
+</table>
+</div>
+<div th:include="layout :: footer"></div>
+</body>
+</html>

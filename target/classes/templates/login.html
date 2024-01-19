@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head">
+    
+</head>
+<style>
+       .a{
+           font-family: Arial, Helvetica, sans-serif;
+           border-radius: 5px;
+           background-color: #f2f2f2;
+           margin: auto;
+           margin-top: 10%;
+           padding-left: 80px;
+           padding-top: 20px;
+           padding-bottom: 40px;
+           width: 390px;
+          }
+          input[type=text], select, input[type=password] {
+            width: 300px;
+            padding: 32px 40px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 5px;
+        }
+
+          button[type=submit] {
+              width: 300px;
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+
+          button[type=submit]:hover {
+              background-color: #45a049;
+            }
+            .h1a{
+                margin-left: 15px;
+            }
+    </style>
+<body>
+
+
+<div class="a">
+    <h1 class="h1a">Log in or register</h1>
+<form th:action="@{/login}" method="POST" >
+    <input type="text" name="login" placeholder="Login"/>
+    <input type="password" name="passwd" placeholder="Password"/>
+    <button type="submit">Log in</button>
+</form>
+<form th:action="@{/register}" >
+    <button type="submit">Sign in</button>
+</form>
+    </div>
+<div th:include="layout :: footer"></div>
+</body>
+</html>

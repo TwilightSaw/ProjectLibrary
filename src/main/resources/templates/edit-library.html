@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head">
+    <title>Edit Library</title>
+</head>
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="hidden"],
+        button[type="submit"] {
+            width: calc(100% - 20px);
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<h1>Edit your book</h1>
+<form th:action="@{'/libraries/edit/' + ${library.id}}" method="POST" th:object="${library}">
+    <input type="hidden" th:field="*{id}" />
+    <input type="text" th:field="*{name}" placeholder="Book title"/>
+    <input type="text" th:field="*{location}" placeholder="Publisher"/>
+    <button type="submit">Save</button>
+</form>
+<div th:include="layout :: footer"></div>
+</body>
+</html>

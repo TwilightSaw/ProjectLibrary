@@ -1,0 +1,9 @@
+com\example\project\entity\Library.class
+com\example\project\controllers\LibraryController.class
+com\example\project\configuration\UserAuthenticationDetails.class
+com\example\project\configuration\Security.class
+com\example\project\controllers\UserController.class
+com\example\project\entity\User.class
+com\example\project\ProjectApplication.class
+com\example\project\dao\UserDao.class
+com\example\project\dao\LibraryRepository.class

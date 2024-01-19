@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head">
+    <title>User Profile</title>
+    <!-- Your CSS stylesheets and other head elements -->
+    
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .profile-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .action-buttons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .action-buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 8px 16px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-buttons a:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+<body>
+    <!-- Your navigation panel -->
+    <div th:include="layout :: navigationPanel"></div>
+    
+    <!-- Main content -->
+    <div class="container">
+        
+        <div class="profile-info">
+            
+            <h1 th:text="'Welcome, ' + ${user.name} + ' ' + ${user.surname} + '.'"></h1>
+            <p class="empty-space">Your personal information and settings can be managed here.</p>
+            
+            <div class="action-buttons">
+                <a th:href="@{/edit}">Edit Profile</a>
+                <a th:href="@{/delete}">Delete Profile</a>
+                <!-- Add more buttons or links as needed -->
+            </div>
+           
+        </div>
+        <!-- Add more content here -->
+    </div>
+    
+    <!-- Your footer -->
+    <div class="footer" th:include="layout :: footer"></div>
+    
+    <!-- Your JavaScript scripts -->
+</body>
+</html>

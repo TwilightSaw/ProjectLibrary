@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: head"></head>
+<body>
+<div th:include="layout :: navigationPanel"></div>
+<h1>Lista użytkowników</h1>
+<div>
+    <table>
+        <tr>
+            <th>UserId</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Login</th>
+            <th>Password</th>
+        </tr>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.getUserId}" />
+            <td th:text="${user.name}" />
+            <td th:text="${user.surname}" />
+            <td th:text="${user.login}" />
+            <td th:text="${user.password}" />
+        </tr>
+    </table>
+</div>
+<div th:include="layout :: footer"></div>
+</body>
+</html>
